@@ -54,18 +54,9 @@
     	height: 100px;
     	width: 223px;
         margin-top: 0px;
-        /*margin-left: 100px;*/
     }
 
-    .footer-legal {
-        margin-top: 70px;
-        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-        color: #ffffff;
-        font-size: 14px;
-
-    }
-
-    .mainbar {
+    .header {
         background-image: url("/static/images/purple.png");
         background-repeat: repeat;
         background-position: left top;
@@ -77,7 +68,7 @@
         left: 0;
     }
 
-    .bottombar {
+    .footer {
         background-image: url("/static/images/purple.png");
         background-repeat: repeat;
         background-position: left top;
@@ -87,53 +78,18 @@
         top: 1200px;
         left: 0;
         bottom: 0;
+        min-width: 837px;
     }
 
-    .col-one {
-        margin-left: 100px;
+    .footer-legal {
+        margin-top: 70px;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        color: #ffffff;
+        font-size: 14px;
+
     }
 
-    .content-container {
-        /*background-image: url("/static/images/content-container.png");*/
-        /*background-repeat: repeat;
-        background-position: left top;*/
-        background-color:rgba(102,51,153,0.1);
-        width: 820px;
-        height: 685px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 150px;
-        margin-bottom: 100px;
-    }
 
-    .content-container-about {
-        /*background-image: url("/static/images/content-container.png");*/
-        /*background-repeat: repeat;
-        background-position: left top;*/
-        background-color:rgba(102,51,153,0.1);
-        width: 820px;
-        height: 830px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 176px;
-        margin-bottom: 100px;
-    }
-
-    .content-container-involved {
-        /*background-image: url("/static/images/content-container.png");*/
-        /*background-repeat: repeat;
-        background-position: left top;*/
-        background-color:rgba(102,51,153,0.1);
-        width: 820px;
-        height: 225px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 176px;
-        margin-bottom: 100px;
-    }
 
     .main-featured {
         background-image: url("/static/images/main-featured.png");
@@ -146,7 +102,7 @@
         position: absolute;
     }
 
-    .current-projects {
+    .current-projects-container {
         width: 779px;
         height: 300px;
         background-color: #FFFFFF;
@@ -155,28 +111,11 @@
         margin-left: 20px;
     }
 
-    .about {
-        width: 779px;
-        height: 775px;
-        background-color: #FFFFFF;
-        position: absolute;
-        margin-top: 20px;
-        margin-left: 20px;
-    }
-
-    .involved {
-        width: 779px;
-        height: 186px;
-        background-color: #FFFFFF;
-        position: absolute;
-        margin-top: 20px;
-        margin-left: 20px;
-    }
+    /* sitewide navigation */
 
     .sitewide-navigation {
         margin-top: 40px;
         margin-left: 606px;
-        /*position: absolute;*/
         font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         color: #FFFFFF;
         font-size: 16px;
@@ -191,10 +130,11 @@
     }
 
     .sitewide-navigation-text:hover {
-        color: #00cc33;
+        color: #cccccc;
         text-decoration: none;    
     }
-    
+ 
+    /* styling for content containers */
 
     .top-container {
         width: 820px;
@@ -202,6 +142,37 @@
         margin-right: auto;
         position: relative;
         /*display: block;*/
+    }
+
+    .content-container {
+        background-color:rgba(102,51,153,0.1);
+        width: 820px;
+        height: 685px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+        margin-bottom: 100px;
+    }
+
+    .content-container-small {
+        background-color:rgba(102,51,153,0.1);
+        width: 820px;
+        height: 225px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 176px;
+        margin-bottom: 100px;
+    }
+
+    .white-container-small {
+        width: 779px;
+        height: 186px;
+        background-color: #FFFFFF;
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;
     }
 
     .card-header-text {
@@ -274,7 +245,7 @@
 </head>
 
 <body>
-	<div class="mainbar">
+	<div class="header">
         <div class="top-container">
             <div class="mainlogo">
                 <div class="sitewide-navigation">
@@ -289,7 +260,7 @@
     </div>
 	{% block body %}{% endblock body %}
 
-    <div class="bottombar">
+    <div class="footer">
         <div class="top-container footer-legal">Foundation for Learning Equality All Rights Reserved 2013</div>
     </div>
 
