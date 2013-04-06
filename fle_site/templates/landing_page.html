@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% block home_nav %}selected{% endblock home_nav %}
+
+    <div class="content-container">
+        <div class="main-featured"></div>
+        <div class="current-projects">
+            <p class="card-header-text">Current Projects</p>
+            <hr>
+            <img class="card-img" src="/static/images/ka-black-white.png"/>
+            <p class="card-description-text">KA Lite is an offline version of Khan Academy that runs on almost anything.</p>
+            <p class="card-text">-Bringing the online education revolution to developing countries.</p>
+            <p class="card-text">-Synchronize and manage your organization's deployments.</p>
+            <p class="card-text">-Quick installation, minimun system requirements, and simple to use.</p>
+            <p class="card-text">-Students can earn points, teacher can view coach reports.</p>
+            <p class="card-text">-Choose which videos to download, and languages for subtitles.</p>
+            <p class="card-cta-text">Only 35% of the world has internet 100% of the world needs education.</p>
+            <a class="cta-btn" href="http://kalite.adhocsync.com/">Learn More</a>
+        </div>
+    </div>
+
+{% endblock body %}

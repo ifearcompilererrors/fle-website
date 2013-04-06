@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 {% block titletag %}
+	 <title>{% block title %}{{ title }}{% endblock title %} | FLE</title>
+	 {% endblock %}
+
+	
+	{% block basecss %}{% endblock basecss %}
+    {% block headcss %}{% endblock headcss %}
+
+    {% block headjs %}{% endblock headjs %}
+    {% block basejs %}{% endblock basejs %}
+
+    {% block extrahead %}{% endblock extrahead %}
+    {% block analytics %}{% endblock analytics %}
+<style>
+    body {
+        /* background image pattern from http://subtlepatterns.com */
+        background-image: url("/static/images/subtle_white_feathers.png"); 
+
+        background-repeat: repeat-x repeat-y;
+        background-position: left top;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    hr {
+        margin-left: 15px;
+        margin-right: 15px;
+        background-color: #cccccc;
+    }
+
+    p {
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    }
+
+    .selected {
+        text-decoration: underline;
+    }
+
+
+    .mainlogo {
+    	background-image: url("/static/images/fle-logo.jpg");
+        background-repeat: no-repeat;
+        background-position: left top;
+    	height: 100px;
+    	width: 223px;
+        margin-top: 0px;
+        /*margin-left: 100px;*/
+    }
+
+    .footer-legal {
+        margin-top: 70px;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        color: #ffffff;
+        font-size: 14px;
+
+    }
+
+    .mainbar {
+        background-image: url("/static/images/purple.png");
+        background-repeat: repeat;
+        background-position: left top;
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .bottombar {
+        background-image: url("/static/images/purple.png");
+        background-repeat: repeat;
+        background-position: left top;
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        top: 150%;
+        left: 0;
+    }
+
+    .col-one {
+        margin-left: 100px;
+    }
+
+    .content-container {
+        /*background-image: url("/static/images/content-container.png");*/
+        /*background-repeat: repeat;
+        background-position: left top;*/
+        background-color:rgba(102,51,153,0.1);
+        width: 820px;
+        height: 685px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+        margin-bottom: 100px;
+    }
+
+    .content-container-about {
+        /*background-image: url("/static/images/content-container.png");*/
+        /*background-repeat: repeat;
+        background-position: left top;*/
+        background-color:rgba(102,51,153,0.1);
+        width: 820px;
+        height: 830px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 176px;
+        margin-bottom: 100px;
+    }
+
+    .content-container-involved {
+        /*background-image: url("/static/images/content-container.png");*/
+        /*background-repeat: repeat;
+        background-position: left top;*/
+        background-color:rgba(102,51,153,0.1);
+        width: 820px;
+        height: 225px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 176px;
+        margin-bottom: 100px;
+    }
+
+    .main-featured {
+        background-image: url("/static/images/main-featured.png");
+        background-repeat: repeat;
+        background-position: left top;
+        width: 779px;
+        height: 322px;
+        margin-top: 20px;
+        margin-left: 20px;
+        position: absolute;
+    }
+
+    .current-projects {
+        width: 779px;
+        height: 300px;
+        background-color: #FFFFFF;
+        position: absolute;
+        margin-top: 365px;
+        margin-left: 20px;
+    }
+
+    .about {
+        width: 779px;
+        height: 775px;
+        background-color: #FFFFFF;
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .involved {
+        width: 779px;
+        height: 186px;
+        background-color: #FFFFFF;
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .sitewide-navigation {
+        margin-top: 40px;
+        margin-left: 606px;
+        /*position: absolute;*/
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        color: #FFFFFF;
+        font-size: 16px;
+        display: inline;
+    }
+
+    .sitewide-navigation-text {
+        margin-right: 10px;
+        margin-top: 72px;
+        display: inline-block;
+        color: #ffffff;
+    }
+
+    .sitewide-navigation-text:hover {
+        color: #33cc99;
+        text-decoration: none;    
+    }
+    
+
+    .top-container {
+        width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        /*display: block;*/
+    }
+
+    .card-header-text {
+        text-indent: 15px;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    }
+
+    .card-img {
+        margin-left: 20px;
+        height: 70px;
+    }
+
+    .card-description-text {
+        font-size: 14px;
+        width: 340px;
+        margin-left: 30px;
+        margin-top: 0;
+    }
+
+    .card-text {
+        font-size: 12px;
+        width: 375px;
+        margin-left: 30px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .about-text {
+        font-size: 14px;
+        width: 720px;
+        margin-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    .card-cta-text {
+        position: absolute;
+        top: 58px;
+        margin-left: 475px;
+        width: 270px;
+        margin-bottom: 0;
+    }
+
+    .cta-btn {
+        background-color: #33cc99;
+        height: 50px;
+        width: 200px;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        font-size: 18px;
+        color: #ffffff;
+        margin-left: 505px;
+        margin-top: -90px;
+        margin-right: 100px;
+        float: right;
+        position: absolute;
+        border-radius: 0.5em;
+        border-width: 1px;
+        border-color: #33cc99;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .cta-btn:hover {
+        cursor: auto;
+        color: #ffffff;
+    }
+
+</style>
+</head>
+
+<body>
+	<div class="mainbar">
+        <div class="top-container">
+            <div class="mainlogo">
+                <div class="sitewide-navigation">
+                <!-- <div style=""> -->
+                <a class="sitewide-navigation-text {% block home_nav %}{% endblock home_nav %}"href="{% url landingpage %}">Home</a>  
+                <a class="sitewide-navigation-text {% block about_nav %}{% endblock about_nav %}"href="{% url about %}">About</a> 
+                <a class="sitewide-navigation-text {% block involved_nav %}{% endblock involved_nav %}"href="{% url involved %}">Get Involved</a>
+                <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+	{% block body %}{% endblock body %}
+
+    <div class="bottombar">
+        <div class="top-container footer-legal">Foundation for Learning Equality All Rights Reserved 2013</div>
+    </div>
+
+</body>
+
+</html>
