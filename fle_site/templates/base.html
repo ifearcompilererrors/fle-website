@@ -22,6 +22,7 @@
 
         background-repeat: repeat-x repeat-y;
         background-position: left top;
+        margin: 0;
     }
 
     a {
@@ -54,6 +55,7 @@
     	height: 100px;
     	width: 223px;
         margin-top: 0px;
+        position: absolute;
     }
 
     .header {
@@ -63,9 +65,6 @@
         width: 100%;
         min-width: 837px;
         height: 100px;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     .footer {
@@ -82,11 +81,9 @@
     }
 
     .footer-legal {
-       
-
+        color: #666;
+        text-align: right;
     }
-
-
 
     .main-featured {
         background-image: url("/static/images/main-featured.png");
@@ -94,37 +91,31 @@
         background-position: left top;
         width: 779px;
         height: 322px;
-        margin-top: 20px;
-        margin-left: 20px;
-        position: absolute;
+        margin-bottom: 20px;
     }
 
-    .current-projects-container {
-        width: 779px;
-        height: 300px;
+    .white-container {
+        width: 759px;
         background-color: #ffffff;
-        position: absolute;
-        margin-top: 365px;
-        margin-left: 20px;
+        padding: 2px 10px 20px 10px;
     }
 
     /* sitewide navigation */
 
     .sitewide-navigation {
-        margin-top: 40px;
-        margin-left: 606px;
-        margin-bottom: 3px;
         font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         color: #ffffff;
         font-size: 16px;
         display: inline;
+        width: 800px;
     }
 
     .sitewide-navigation-text {
         margin-right: 10px;
-        margin-top: 72px;
+        margin-top: 70px;
         display: inline-block;
         color: #ffffff;
+        float: right;
     }
 
     .sitewide-navigation-text:hover {
@@ -143,33 +134,14 @@
 
     .content-container {
         background-color:rgba(102,51,153,0.1);
-        width: 820px;
-        height: 685px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 150px;
-        margin-bottom: 200px;
-    }
-
-    .content-container-small {
-        background-color:rgba(102,51,153,0.1);
-        width: 820px;
-        height: 225px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 176px;
-        margin-bottom: 400px;
-    }
-
-    .white-container-small {
         width: 779px;
-        height: 186px;
-        background-color: #FFFFFF;
-        position: absolute;
-        margin-top: 20px;
-        margin-left: 20px;
+        /*height: 685px;*/
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        margin-bottom: 200px;
+        padding: 20px;
     }
 
     /* text and content styling */
@@ -180,7 +152,6 @@
     }
 
     .small-img {
-        margin-left: 20px;
         height: 70px;
     }
 
@@ -188,13 +159,13 @@
         font-size: 14px;
         width: 340px;
         margin-left: 30px;
-        margin-top: 0;
+        margin-top: 13px;
     }
 
     .card-text {
         font-size: 12px;
         width: 375px;
-        margin-left: 30px;
+        margin-left: 16px;
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -208,10 +179,11 @@
     }
 
     .card-cta-text {
-        position: absolute;
-        top: 58px;
-        margin-left: 475px;
-        width: 270px;
+        margin-top: -15px;
+    }
+
+    .card-cta-logo {
+        top: 60px;
         margin-bottom: 0;
     }
 
@@ -222,11 +194,7 @@
         font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         font-size: 18px;
         color: #ffffff;
-        margin-left: 505px;
-        margin-top: -90px;
-        margin-right: 100px;
-        float: right;
-        position: absolute;
+        padding: 12px 50px;
         border-radius: 0.5em;
         border-width: 1px;
         border-color: #33cc99;
@@ -239,6 +207,15 @@
         color: #ffffff;
         text-decoration: none;
     }
+    
+    .card-column {
+        width: 47%;
+        float: left;
+    }
+    
+    .center {
+        text-align: center;
+    }
 
 </style>
 </head>
@@ -247,20 +224,20 @@
 	<div class="header">
         <div class="top-container">
             <div class="mainlogo">
-                <div class="sitewide-navigation">
+            </div>
+            <div class="sitewide-navigation">
                 <!-- <div style=""> -->
-                <a class="sitewide-navigation-text {% block home_nav %}{% endblock home_nav %}"href="{% url landingpage %}">Home</a>  
-                <a class="sitewide-navigation-text {% block about_nav %}{% endblock about_nav %}"href="{% url about %}">About</a> 
-                <a class="sitewide-navigation-text {% block involved_nav %}{% endblock involved_nav %}"href="{% url involved %}">Get Involved</a>
+                <a class="sitewide-navigation-text {% block involved_nav %}{% endblock involved_nav %}" href="{% url involved %}">Get Involved</a>
+                <a class="sitewide-navigation-text {% block about_nav %}{% endblock about_nav %}" href="{% url about %}">About</a> 
+                <a class="sitewide-navigation-text {% block home_nav %}{% endblock home_nav %}" href="{% url landingpage %}">Home</a>
                 <!-- </div> -->
-                </div>
             </div>
         </div>
     </div>
 	{% block body %}{% endblock body %}
 
     <div class="footer">
-        <div class="top-container footer-legal">Foundation for Learning Equality 2013 All Rights Reserved</div>
+        <div class="top-container footer-legal">&copy;2013 Foundation for Learning Equality</div>
     </div>
 
 </body>
