@@ -1,7 +1,12 @@
 # Django settings for fle_site project.
 import os
 
-DEBUG = True
+try:
+    from secrets import *
+except:
+    SECRET_KEY = 'this is not the actual secret key; for testing only'
+
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -15,7 +20,7 @@ PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/Matterhorn/fle_site/sqlite3.db',                      # Or path to database file if using sqlite3.
+        'NAME': 'data.sqlite',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -30,7 +35,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -83,9 +88,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'j2%)_%!a^@=11hbcl791&amp;rz1)lmp2q!@7vkdp4_%0o#r6e0!g('
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
