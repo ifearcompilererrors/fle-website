@@ -17,10 +17,7 @@ import os, sys
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 
-activate_this = PROJECT_PATH + '/../bin/activate_this.py'
-execfile(activate_this, dict(__file__=activate_this))
-
-sys.path = [PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
+sys.path = [os.path.join(PROJECT_PATH, "../lib/python2.7/site-packages/"), PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fle_site.settings")
 
