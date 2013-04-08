@@ -13,7 +13,11 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-import os
+import os, sys
+
+PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
+
+sys.path = [PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fle_site.settings")
 
