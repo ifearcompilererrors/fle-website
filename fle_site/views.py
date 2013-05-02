@@ -8,3 +8,6 @@ def about(request):
 
 def involved(request):
 	return render_to_response("involved.html")
+
+def d3 (request):
+	return render_to_response("d3.html")	

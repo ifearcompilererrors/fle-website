@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 	url(r'^$', 'fle_site.views.landingpage', name='landingpage'),
 	url(r'^about/$', 'fle_site.views.about', name='about'),
 	url(r'^getinvolved/$', 'fle_site.views.involved', name='involved'),
+    url(r'^d3/$', 'fle_site.views.d3', name='d3'),
 
 
     # Examples:
