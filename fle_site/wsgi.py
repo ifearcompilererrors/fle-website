@@ -15,18 +15,10 @@ framework.
 """
 import os, sys
 
-PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
+# PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
+# sys.path = [os.path.join(PROJECT_PATH, "../lib/python2.7/site-packages/"), PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
 
-sys.path = [os.path.join(PROJECT_PATH, "../lib/python2.7/site-packages/"), PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
+from django.core.handlers.wsgi import WSGIHandler
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fle_site.settings")
-
-# This application object is used by any WSGI server configured to use this
-# file. This includes Django's development server, if the WSGI_APPLICATION
-# setting points here.
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
-
-# Apply WSGI middleware here.
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'fle_site.settings'
+application = WSGIHandler()

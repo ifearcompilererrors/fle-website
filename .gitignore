@@ -2,3 +2,4 @@
 *.sublime-project
 *.sublime-workspace
 /static/
+.DS_Store
