@@ -20,5 +20,5 @@ sys.path = [PROJECT_PATH, os.path.join(PROJECT_PATH, "../")] + sys.path
 
 from django.core.handlers.wsgi import WSGIHandler
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'fle_site.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 application = WSGIHandler()
