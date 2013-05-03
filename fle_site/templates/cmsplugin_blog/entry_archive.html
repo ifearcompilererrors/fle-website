@@ -1,0 +1,17 @@
+{% extends "cmsplugin_blog/cmsplugin_blog_base.html" %}
+{% load i18n cmsplugin_blog_tags %}
+
+{% block left-col %}
+{{ block.super }}
+
+<h2>Recent blog entries</h2>
+
+{% with latest as object_list %}
+{% if object_list %}
+   {% include "cmsplugin_blog/entry_list_include.html" %}
+{% else %}
+	<p>{% trans "No entries" %}</p>
+{% endif %}
+{% endwith %}
+
+{% endblock %}

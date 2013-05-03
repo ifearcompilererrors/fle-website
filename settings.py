@@ -1,17 +1,23 @@
-# Django settings for flesite project.
 import os
 
-DEBUG = True
-TEMPLATE_DEBUG = False
+try:
+    from local_settings import *
+    import local_settings
+except ImportError:
+    local_settings = {}
+
+DEBUG = hasattr(local_settings, "DEBUG") and local_settings.DEBUG or True
+TEMPLATE_DEBUG = hasattr(local_settings, "TEMPLATE_DEBUG") and local_settings.TEMPLATE_DEBUG or DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+USE_TZ = False
+
 MANAGERS = ADMINS
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
-PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 DATABASES = {
     'default': {
@@ -31,7 +37,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -47,16 +53,33 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+FILEBROWSER_DIRECTORY = "files/"
+
+FILEBROWSER_EXTENSIONS = {
+    'Image': ['.jpg','.jpeg','.gif','.png','.tif','.tiff'],
+    'Document': ['.pdf','.doc','.rtf','.txt','.xls','.csv','.ppt'],
+    'Video': ['.mov','.wmv','.mpeg','.mpg','.avi','.rm'],
+    'Audio': ['.mp3','.mp4','.wav','.aiff','.midi','.m4p'],
+    'Folder': ['.',],
+}
+
+JQUERY_JS = 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+JQUERY_UI_JS = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'
+JQUERY_UI_CSS = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css'
+
+GRAPPELLI_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -101,15 +124,27 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'sekizai.context_processors.sekizai',
     'cms.context_processors.media',
-    # 'sekizai.context_processors.sekizai',
+    
 )
 
+TINYMCE_DEFAULT_CONFIG = {'theme': "advanced",
+                          'relative_urls': False,
+                          'width': '740',
+                          'height': "260",
+                          'plugins': "table,paste,searchreplace,advimage,advlink,advlist,contextmenu,layer,fullscreen",
+                          'theme_advanced_buttons3_add': "fullscreen,insertlayer,moveforward,movebackward,absolute,|,tablecontrols",
+                          'extended_valid_elements': "div[id|style|class],img[!src|border:0|alt|title|width|height|style],a[name|href|target|title|onclick],g:plusone[size|href],fb:like[href|send|width|layout|show_faces|action]",
+                          'custom_elements': "g:plusone,fb:like",
+                          'fullscreen_new_window': True,
+                         }
 
 ROOT_URLCONF = 'fle_site.urls'
 
 CMS_TEMPLATES = (
     ('blog.html', 'blog'),
+    ('landing_page.html', 'landingpage'),
 )
 
 LANGUAGES = [
@@ -117,7 +152,7 @@ LANGUAGES = [
 ]
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, "templates"),
+    os.path.join(PROJECT_PATH, "templates"),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -136,10 +171,23 @@ INSTALLED_APPS = (
     'menus',
     'south',
     'sekizai',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'cms.plugins.text',
+    'cms.plugins.picture',
+    'cms.plugins.link',
+    'cms.plugins.file',
+    'filer',
+    'easy_thumbnails',
+    'cmsplugin_blog',
+    'cmsplugin_plaintext',
+    'djangocms_utils',
+    'simple_translation',
+    'tagging',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_image',
+    'grappelli',
+    'tinymce',
 )
 
 # A sample logging configuration. The only tangible logging

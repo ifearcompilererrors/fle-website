@@ -1,0 +1,86 @@
+{% extends "cmsplugin_blog/cmsplugin_blog_base.html" %}
+
+{% load placeholder_tags cmsplugin_blog_tags simple_translation_tags %}
+
+{% block subtitle %}{{ entry.entrytitle_set.all.0.title }}{% endblock subtitle %}
+
+{% block meta_description %}{% spaceless %}
+{% with object.placeholders|choose_placeholder:"excerpt" as excerpt %}
+    {{ excerpt.cmsplugin_set.all.0.text.body|striptags }}
+{% endwith %}
+{% endspaceless %}{% endblock meta_description %}
+
+{% block extrahead %}
+{% with object|get_preferred_translation_from_request:request as title %}
+<meta property="og:title" content="{{ title }} | Jamie Alexandre" />
+<meta property="og:site_name" content="Jamie Alexandre's Blog"/>
+{% endwith %}
+<meta property="og:type" content="blog" />
+<meta property="og:description" content="{{ excerpt.cmsplugin_set.all.0.text.body|striptags }}" />
+{# <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /> #}
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    $(function() {
+        $.each("{{ entry.tags }}".split(", "), function(ind, tag) {
+            $("#tag_" + tag).css("font-weight", "bold");
+        });
+    });
+</script>
+{% endblock %}
+
+{% block left-col %}
+{{ block.super }}
+
+<div class="entry">
+
+    {% with object|get_preferred_translation_from_request:request as title %}
+    <div class="entry-header">
+        <h2 class="entry-title">{{ title }}</h2>
+        <div class="entry-subheader">
+            <a class="entry-authour" href="/about/">Jamie Alexandre</a>,
+            <span class="entry-date">{{ entry.pub_date|date:"M d, Y" }}</span>
+            {% if request.user.is_superuser %}
+            (<a href="/admin/cmsplugin_blog/entry/{{ entry.pk }}/?language=en" target="_blank">edit</a>)
+            {% endif %}
+        </div>
+    </div>
+    {% endwith %}
+
+    {% with object.placeholders|choose_placeholder:"content" as content %}
+        {% render_placeholder content %}
+    {% endwith %}
+
+    <br/>
+
+    <p>
+    {% with object|get_preferred_translation_from_request:request as title %}
+    Like this post? Share it on
+    <a href="http://twitter.com/share?url=http%3A%2F%2Fjamiealexandre.com%2F{{ request.get_full_path }}&text={{ title|urlencode }}&via=jamiealexandre" target="_blank">Twitter</a>
+    or
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjamiealexandre.com%2F{{ request.get_full_path }}" target="_blank">Facebook</a>!
+    {% endwith %}
+    </p>
+
+    <br/>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = "jamiealexandre";
+        var disqus_developer = {% if DEBUG %}1{% else %}0{% endif %};
+        var disqus_identifier = window.location.host + window.location.pathname;
+        
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+{% endblock %}
+
