@@ -11,3 +11,7 @@ def involved(request):
 
 def d3 (request):
 	return render_to_response("d3.html")	
+
+def blog (request):
+	return render_to_response("blog.html")	
+

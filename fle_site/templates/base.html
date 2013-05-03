@@ -1,5 +1,7 @@
+{% load cms_tags sekizai_tags %}
 <!DOCTYPE HTML>
 
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 {% block titletag %}
@@ -34,6 +36,8 @@
     }
 
     body {
+        {% cms_toolbar %}
+
         /* background image pattern from http://subtlepatterns.com */
         background-image: url("/static/images/subtle_white_feathers.png"); 
         background-repeat: repeat-x repeat-y;
@@ -216,6 +220,7 @@
     }
 
 </style>
+{% render_block "css" %}
 </head>
 
 <body>
@@ -237,7 +242,8 @@
     <div class="footer">
         <div class="footer-legal">&copy; 2013 Foundation for Learning Equality</div>
     </div>
-
+{% render_block "js" %}
 </body>
+</html>
 
 </html>
