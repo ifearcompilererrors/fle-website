@@ -6,8 +6,13 @@ try:
 except ImportError:
     local_settings = {}
 
-DEBUG = hasattr(local_settings, "DEBUG") and local_settings.DEBUG or True
-TEMPLATE_DEBUG = hasattr(local_settings, "TEMPLATE_DEBUG") and local_settings.TEMPLATE_DEBUG or DEBUG
+def localor(setting_name, default_val):
+    """Returns local_settings version if it exists (and is non-empty), otherwise uses default value"""
+    return hasattr(local_settings, setting_name) and getattr(local_settings, setting_name) or default_val
+
+DEBUG = localor("DEBUG", False)
+TEMPLATE_DEBUG = localor("TEMPLATE_DEBUG", DEBUG)
+GEOIPDAT = localor("GEOIPDAT", '/usr/share/GeoIP/GeoIPCity.dat')
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),

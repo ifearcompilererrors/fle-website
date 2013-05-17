@@ -3,3 +3,5 @@
 *.sublime-workspace
 /static/
 .DS_Store
+local_settings.py
+ips.txt
