@@ -1,11 +1,10 @@
 from django.shortcuts import render_to_response
 import settings
-from settings import GEOIPDAT
 import pygeoip
 import json
 import re
 
-gic = pygeoip.GeoIP(GEOIPDAT)
+gic = pygeoip.GeoIP(settings.GEOIPDAT)
 
 def landingpage(request):
 	return render_to_response("landing_page.html")
