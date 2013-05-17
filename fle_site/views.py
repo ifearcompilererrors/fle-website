@@ -1,8 +1,9 @@
 from django.shortcuts import render_to_response
 import settings
+from settings import GEOIPDAT
 import pygeoip
 
-gic = pygeoip.GeoIP('/usr/share/GeoIP/GeoIPCity.dat')
+gic = pygeoip.GeoIP(GEOIPDAT)
 
 def landingpage(request):
 	return render_to_response("landing_page.html")

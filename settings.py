@@ -12,6 +12,7 @@ def localor(setting_name, default_val):
 
 DEBUG = localor("DEBUG", False)
 TEMPLATE_DEBUG = localor("TEMPLATE_DEBUG", DEBUG)
+GEOIPDAT = localor("GEOIPDAT", '/usr/share/GeoIP/GeoIPCity.dat')
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
