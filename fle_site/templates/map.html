@@ -30,19 +30,26 @@
                                 new google.maps.LatLng(-60, 100));
                                 map.fitBounds(defaultBounds);
 
-            var positions = [
-            {% for item in latlng %}
-                [{{ item.0 }}, {{ item.1 }}],
-            {% endfor %}
-            ];
             
-            for (var i = 0; i < positions.length; i++) {
-                var item = positions[i];
+            var locations = {{ locations|safe }};
+            // {% for item in locationinfo %}
+            //     [{{ item.0 }}, {{ item.1 }}, "{{ item.2 }}", "{{ item.3 }}", "{{ item.4 }}"]
+            // {% endfor %}
+            
+            $(locations).each(function(i, item) {
+                var infowindow = new google.maps.InfoWindow();
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(item[0], item[1]),
+                    position: new google.maps.LatLng(item.latitude, item.longitude),
                     map: map,
                     // draggable: true,
                     // clickable: true,
+                });
+                // listen for click event
+                google.maps.event.addListener(marker, 'click', function() {
+                    // replace info window content and position
+                    infowindow.setContent(item.name);
+                    infowindow.setPosition(marker.position);
+                    infowindow.open(map);
                 });
                 // var circle = new google.maps.Circle({
                 //     center: new google.maps.LatLng(item[0], item[1]),
@@ -54,7 +61,7 @@
                 //     fillColor: "#FF0000",
                 //     fillOpacity: 0.5
                 // });
-            }
+            });
             
         }
         </script>
