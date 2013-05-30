@@ -16,7 +16,7 @@
             $("#map_canvas").height($(window).height());
             
             var map = new google.maps.Map(document.getElementById('map_canvas'), {
-                mapTypeId: google.maps.MapTypeId.SATELLITE,
+                mapTypeId: google.maps.MapTypeId.HYBRID,
                 // scrollwheel: false,
                 maxZoom: 20,
                 minZoom: 2,
@@ -35,9 +35,9 @@
             // {% for item in locationinfo %}
             //     [{{ item.0 }}, {{ item.1 }}, "{{ item.2 }}", "{{ item.3 }}", "{{ item.4 }}"]
             // {% endfor %}
-            
+            var infowindow = new google.maps.InfoWindow();
+
             $(locations).each(function(i, item) {
-                var infowindow = new google.maps.InfoWindow();
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(item.latitude, item.longitude),
                     map: map,
@@ -45,7 +45,7 @@
                     // clickable: true,
                 });
                 // listen for click event
-                google.maps.event.addListener(marker, 'click', function() {
+                google.maps.event.addListener(marker, 'mouseover', function() {
                     // replace info window content and position
                     infowindow.setContent(item.name);
                     infowindow.setPosition(marker.position);
