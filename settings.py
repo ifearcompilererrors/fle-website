@@ -117,9 +117,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -129,8 +126,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    'sekizai.context_processors.sekizai',
-    'cms.context_processors.media',
     
 )
 
@@ -146,11 +141,6 @@ TINYMCE_DEFAULT_CONFIG = {'theme': "advanced",
                          }
 
 ROOT_URLCONF = 'fle_site.urls'
-
-CMS_TEMPLATES = (
-    ('blog.html', 'blog'),
-    ('landing_page.html', 'landingpage'),
-)
 
 LANGUAGES = [
     ('en', 'English'),
@@ -170,29 +160,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fle_site',
-    'cms',
-    'mptt',
-    'menus',
-    'south',
-    'sekizai',
     'django.contrib.admin',
-    'cms.plugins.text',
-    'cms.plugins.picture',
-    'cms.plugins.link',
-    'cms.plugins.file',
-    'filer',
-    'easy_thumbnails',
-    'cmsplugin_blog',
-    'cmsplugin_plaintext',
-    'djangocms_utils',
-    'simple_translation',
-    'tagging',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_image',
-    'grappelli',
-    'tinymce',
+    'fle_site',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -1,9 +1,0 @@
-{% load i18n %}
-
-<div class="by-date">
-    <div class="snippet-header">{% trans "By date" %}...</div>
-    <div class="snippet-item"><a href="/blog/">Recent</a></div>
-{% for d in dates reversed %}
-    <div class="snippet-item"><a href="{% url blog_archive_month year=d|date:"Y",month=d|date:"m" %}">{{ d|date:"M Y" }}</a></div>
-{% endfor %}
-</div>

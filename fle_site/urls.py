@@ -7,14 +7,13 @@ from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	# url(r'^$', 'fle_site.views.landingpage', name='landingpage'),
+	url(r'^$', 'fle_site.views.landingpage', name='landingpage'),
 	# url(r'^about/$', 'fle_site.views.about', name='about'),
 	# url(r'^getinvolved/$', 'fle_site.views.involved', name='involved'),
     
     url(r'^map/$', 'fle_site.views.map', name='map'),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('cms.urls')),
  
 )
 
