@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^map/$', 'fle_site.views.map', name='map'),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/', include('zinnia.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
  
 )
 
