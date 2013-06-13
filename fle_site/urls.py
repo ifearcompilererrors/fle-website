@@ -7,16 +7,16 @@ import blogger.urls
 # from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-	url(r'^$', 'fle_site.views.landingpage', name='landingpage'),
-	# url(r'^about/$', 'fle_site.views.about', name='about'),
-	# url(r'^getinvolved/$', 'fle_site.views.involved', name='involved'),
-    
-    url(r'^map/$', 'fle_site.views.map', name='map'),
+urlpatterns = patterns('fle_site.views',
+	url(r'^$', 'landingpage', name='landingpage'),
+	# url(r'^about/$', 'about', name='about'),
+	# url(r'^getinvolved/$', 'involved', name='involved'),
+    url(r'^map/$', 'map', name='map'),
+)
 
+urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include(blogger.urls)),
- 
 )
 
 if settings.DEBUG:
