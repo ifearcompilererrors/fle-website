@@ -126,7 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    
+    'zinnia.context_processors.version',
 )
 
 TINYMCE_DEFAULT_CONFIG = {'theme': "advanced",
@@ -163,6 +163,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'fle_site',
     'south',
+    'tagging',
+    'mptt',
+    'zinnia',
 )
 
 # A sample logging configuration. The only tangible logging
