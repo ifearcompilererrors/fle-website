@@ -126,6 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'blogger.context_processors.blog_info',
 )
 
 TINYMCE_DEFAULT_CONFIG = {'theme': "advanced",
@@ -160,8 +161,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.comments', # This must be configured
+    'django.contrib.markup', # to render markdown
     'fle_site',
     'south',
+    'rest_framework', # django rest framework 2
+    'taggit', # django-taggit
+    'blogger.themes.default', # the base theme
+    'blogger' # the app
 )
 
 # A sample logging configuration. The only tangible logging
@@ -185,4 +192,16 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+
+BLOG_SETTINGS = {
+    'defaults': { # change the defaults of models and some constats for views
+        'auto_publish': False,
+        'auto_promote': False,
+    },
+    'info': { # attached to all responses so the information is available to the templates.
+        'BLOG_TITLE': 'FLE Weblog',
+        'BLOG_SUBTITLE': 'Changing the state of education on character at a time.',
+    } 
 }
