@@ -1,7 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
-import blogger.urls
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -16,7 +15,6 @@ urlpatterns = patterns('fle_site.views',
 
 urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blog/', include(blogger.urls)),
 )
 
 if settings.DEBUG:
