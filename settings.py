@@ -202,6 +202,6 @@ BLOG_SETTINGS = {
     },
     'info': { # attached to all responses so the information is available to the templates.
         'BLOG_TITLE': 'FLE Weblog',
-        'BLOG_SUBTITLE': 'Changing the state of education on character at a time.',
+        'BLOG_SUBTITLE': 'Changing the state of education one character at a time.',
     } 
 }
