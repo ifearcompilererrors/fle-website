@@ -1,4 +1,4 @@
-{% extends "radpress/base.html" %}
+{% extends "fle_site/base.html" %}
 
 {% load trans from i18n %}
 {% load url from future %}
@@ -6,7 +6,7 @@
 
 {% block title %}{{ object.title }}{% endblock %}
 
-{% block content %}
+{% block contents %}
   {% include "radpress/partials/entry.html" %}
 
   {% if RADPRESS_DISQUS %}
