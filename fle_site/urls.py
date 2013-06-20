@@ -8,7 +8,7 @@ from radpress import urls
 admin.autodiscover()
 
 urlpatterns = patterns('fle_site.views',
-	url(r'^$', 'landingpage', name='landingpage'),
+	url(r'^$', 'landingpage', name='home'),
 	# url(r'^about/$', 'about', name='about'),
 	# url(r'^getinvolved/$', 'involved', name='involved'),
     url(r'^map/$', 'map', name='map'),
