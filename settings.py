@@ -126,6 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'django.core.context_processors.request',
 )
 
 TINYMCE_DEFAULT_CONFIG = {'theme': "advanced",
@@ -162,6 +163,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'fle_site',
     'south',
+    'easy_thumbnails',
+    'radpress',
 )
 
 # A sample logging configuration. The only tangible logging

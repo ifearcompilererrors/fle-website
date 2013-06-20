@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
+from radpress import urls
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -14,6 +15,7 @@ urlpatterns = patterns('fle_site.views',
 )
 
 urlpatterns += patterns('',
+    url(r'^blog/', include('radpress.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
