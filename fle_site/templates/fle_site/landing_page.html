@@ -1,0 +1,51 @@
+{% extends 'fle_site/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block home_nav %}selected{% endblock home_nav %}
+
+{% block contents %}
+
+    <div class="content-container">
+        <div class="main-featured"><a href="{% url map %}"><img src="/static/images/main-featured.png"/></a></div>
+               <div class="white-container">
+            <p class="card-header-text">About</p>
+            <hr>
+            <p class="about-text">The Foundation for Learning Equality (FLE), a California-based nonprofit organization, is dedicated to creating tools for the sharing and creation of open-licensed educational content for use by anyone around the world, with special emphasis on reaching the 65% of the world that does not have Internet access, and those with limited or expensive bandwidth.</p>
+        </div>
+        <br>
+        <div class="white-container">
+            <p class="card-header-text">Current Projects</p>
+            <hr>
+            <div class="card-column center">
+                <a href="http://kalite.learningequality.org/">
+                    <img class="card-cta-logo" src="/static/images/KA_Lite-vertical-logo.png"/>
+                </a>
+                <a class="cta-btn" href="http://kalite.learningequality.org/">Learn More</a>
+            </div>
+            <div class="card-column">
+                <p class="card-description-text">An offline version of Khan Academy that runs on almost anything.</p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <br>
+        <div class="white-container">
+            <p class="card-header-text">Get Involved with FLE</p>
+            <hr> 
+            <p class="about-text">To get involved with the Foundation for Learning Equality, send us an email at <a href="mailto:info@learningequality.org">info@learningequality.org</a>. <br>If you'd like to learn about ways to contribute to the KA Lite project, visit <a href="http://kalitewiki.learningequality.org/contribute">the KA Lite wiki</a>.</p>
+        </div>
+        <br>
+         <div class="white-container">
+            <p class="card-header-text">Support our mission</p>
+            <hr> 
+            <p class="about-text">Help support the Foundation for Learning Equality. Your contribution will go towards our mission of making universal education truly universal.</p>
+            <form style="text-align:center;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="DRYT4JWGGATC6">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+    </div>
+
+{% endblock contents %}
