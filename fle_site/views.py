@@ -7,13 +7,13 @@ import re
 gic = pygeoip.GeoIP(settings.GEOIPDAT)
 
 def landingpage(request):
-	return render_to_response("landing_page.html")
+	return render_to_response("fle_site/landing_page.html")
 
 def about(request):
-	return render_to_response("about.html")
+	return render_to_response("fle_site/about.html")
 
 def involved(request):
-	return render_to_response("involved.html")
+	return render_to_response("fle_site/involved.html")
 
 def map(request):    
     ips = open(settings.PROJECT_PATH + "/ips.txt").readlines()
