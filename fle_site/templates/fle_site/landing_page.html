@@ -1,8 +1,12 @@
 {% extends 'fle_site/base.html' %}
 
+<!-- {% load staticfiles %} -->
+
 {% block title %}Home{% endblock title %}
 
 {% block home_nav %}selected{% endblock home_nav %}
+
+{% block headcss %}<link href="{% static 'css/landingpage.less' %}" media="all" rel="stylesheet/less"/>{% endblock headcss %}
 
 {% block analytics %}
     
@@ -19,7 +23,15 @@
 {% endblock analytics %}
 
 {% block contents %}
-
-    
-
+<div id="tagline-banner" class="arrow-box">
+</div>
+<div id="presentation">
+	
+</div>
+<div id="action-items">
+	<ul>
+		<li>KA Lite</li>
+		<li>Give to FLE</li>
+	</ul>
+</div>
 {% endblock contents %}

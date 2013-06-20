@@ -1,0 +1,30 @@
+@import "base.less"; 
+
+#tagline-banner {
+	height: 75px;
+	width: 100%;
+	background-color: @gray;
+}
+
+.arrow-box {
+	position: relative;
+	background: #cccccc;
+}
+
+.arrow-box:after {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow-box:after {
+	border-color: rgba(204, 204, 204, 0);
+	border-top-color: #cccccc;
+	border-width: 40px;
+	left: 50%;
+	margin-left: -40px;
+}

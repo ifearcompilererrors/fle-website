@@ -5,7 +5,14 @@
 @gray: #cccccc;
 @header-blue: #336799;
 
+// from color scheme
+@primary-blue: #466C91;
+@primary-purple: #634C99;
+@primary-green: #4DB054;
+@primary-orange: #DFAC62;
+
 // Font sizes
+@large-size: 30px;
 @medium-size: 20px;
 @small-size: 13px;
 
@@ -76,7 +83,9 @@ a {
     }
 }
 
-#main-container {
+// Mixins
+.apply-bumpers {
+    /* This can be used throughout the app to line up text with the logo and nav bar */
     margin: 0 @outer-bumper;
 }
 
