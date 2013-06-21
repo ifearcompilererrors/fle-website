@@ -6,12 +6,12 @@
 	background-color: @gray;
 }
 
-.arrow-box {
+.grey-arrow {
 	position: relative;
 	background: #cccccc;
 }
 
-.arrow-box:after {
+.grey-arrow:after {
 	top: 100%;
 	border: solid transparent;
 	content: " ";
@@ -19,12 +19,27 @@
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-}
-
-.arrow-box:after {
 	border-color: rgba(204, 204, 204, 0);
 	border-top-color: #cccccc;
 	border-width: 40px;
 	left: 50%;
 	margin-left: -40px;
+}
+
+#presentation {
+	height: 500px;
+	width: 100%;
+	background-color: @easy-black;
+}
+
+#action-items {
+	ul {
+		.no-padding;
+		.apply-bumpers;
+		list-style-type: none;
+
+		li {
+			display: inline;
+		}
+	}
 }
