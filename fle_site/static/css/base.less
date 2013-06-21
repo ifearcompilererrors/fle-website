@@ -21,8 +21,33 @@
 // Margins & such
 @outer-bumper: 10%;
 
-// Elements
 
+a {
+    color: @white;
+}
+
+.container-wide {
+    background-color: @header-blue;
+}
+
+.nav {
+    position: relative;
+    top: 55px;
+
+    li {
+        margin-left: 30px;
+
+        a {
+            font-size: @medium-size;
+        }
+    }
+}
+
+
+
+
+// Elements
+/*
 html {
     overflow-y: scroll;
 }
@@ -71,10 +96,6 @@ a {
     }   
 }
 
-.maing-container {
-    width: 100%;
-}
-
 .selected {
     border-bottom: 1px solid @gray;
     padding-bottom: 1px;
@@ -88,19 +109,5 @@ a {
         text-align: center;
     }
 }
-
-// Mixins
-.apply-bumpers {
-    /* This can be used throughout the app to line up text with the logo and nav bar */
-    margin: 0 @outer-bumper;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.no-margin {
-    margin: 0;
-}
-
+*/
 
