@@ -23,23 +23,53 @@
 {% endblock analytics %}
 
 {% block contents %}
-<div class="container">
-	<div id="tagline-banner" class="grey-arrow">
-	</div>
-	<div id="presentation">
-
-		<div id="black-arrow-left">
-			
-		</div>
-		<div id="black-arrow-right">
-			
+<div class="container-wide" id="tagline-container">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<p>Because everyone deserves to learn.</p>
+			</div>
 		</div>
 	</div>
-	<div id="action-items">
-		<ul>
-			<li>KA Lite</li>
-			<li>Give to FLE</li>
-		</ul>
+</div>
+<hr>
+<div class="container-wide" id="presentation-container">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<p>Amazing presentation</p>
+				<img src="http://placehold.it/800x400">
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="container-wide" id="action-container">
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+				<div class="row">
+					<div class="span3">
+						<img src="{% static 'images/KA_Lite-vertical-logo.png' %}">
+					</div>
+					<div class="span3 horizontal-align push-down">
+						<p>An offline version of Khan Academy that runs on almost anything.</p>
+						<button class="btn btn-success btn-large">Learn more</button>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="row">
+					<div class="span3">
+						<h2>Support our mission</h2>
+					</div>
+					<div class="span3 push-down">
+						<p>Give to FLE to support the continued development of open-access educational tools.</p>		
+						<button class="btn btn-large btn-primary">Give today</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock contents %}

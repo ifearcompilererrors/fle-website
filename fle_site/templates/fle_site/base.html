@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <div class="container-wide">
+    <div class="container-wide" id="banner">
     	<div class="container">
             <div class="masthead">
                 <a class="" href="{% url home %}"><img src="{% static 'images/fle-prov-logo-small.png' %}"></a>
@@ -33,18 +33,25 @@
                         <a class="{% block home_nav %}{% endblock home_nav %}" href="{% url home %}">Home</a>
                     </li>
                     <li>
+                        <a class="{% block about_nav %}{% endblock about_nav %}" href="#">About</a>
+                    </li>
+                    <li>
                         <a class="{% block blog_nav %}{% endblock blog_nav %}" href="{% url radpress-article-list %}">Blog</a> 
                     </li>
                     <li>
-                        <a class="{% block give_nav %}{% endblock give_nav %}" href="">Give</a>
+                        <a class="{% block give_nav %}{% endblock give_nav %}" href="#">Give</a>
                     </li>
                 </ul>
             </div> 
         </div>
     </div>
+    <hr>
     {% block contents %}{% endblock contents %}
-    <div class="footer-container">
-        <p>&copy; 2013 Foundation for Learning Equality</p>
+    <hr>
+    <div class="container-wide" id="footer-container">
+        <div class="container">
+            <p>&copy; 2013 Foundation for Learning Equality</p>
+        </div>
     </div>
 </body>
 </html>
