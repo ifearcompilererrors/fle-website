@@ -11,7 +11,7 @@ urlpatterns = patterns('fle_site.views',
 	url(r'^$', 'landingpage', name='home'),
 	# url(r'^about/$', 'about', name='about'),
 	# url(r'^getinvolved/$', 'involved', name='involved'),
-    url(r'^map/$', 'map', name='map'),
+    # url(r'^map/$', 'map', name='map'),
 )
 
 urlpatterns += patterns('',

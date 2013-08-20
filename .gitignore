@@ -1,6 +1,7 @@
 *.pyc
 *.sublime-project
 *.sublime-workspace
+*.sqlite*
 /static/
 .DS_Store
 local_settings.py
